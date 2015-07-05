@@ -1,0 +1,3 @@
+---
+- name: ltsp-image
+  command: ltsp-update-image --cleanup /

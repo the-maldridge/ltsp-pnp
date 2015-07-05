@@ -8,10 +8,14 @@
   - ltsp-client
   - ltsp-server
   - ldm-ubuntu-theme
+  register: install
 
 - name: Install a GUI
   apt: pkg=lxde-core state=present
 
 - name: Build client image
-  command: ltsp-update-image --cleanup /
+  notify: ltsp-image
+  when: install.changed
 
+- name: Install a default lts.conf
+  copy: src=lts.conf dest=/var/lib/tftpboot/ltsp/amd64/lts.conf owner=root group=root mode=0644
