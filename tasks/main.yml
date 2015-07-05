@@ -14,6 +14,7 @@
   apt: pkg=lxde-core state=present
 
 - name: Build client image
+  debug: install
   notify: ltsp-image
   when: install.changed
 
