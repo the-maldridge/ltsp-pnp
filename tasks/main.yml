@@ -1,0 +1,17 @@
+---
+- name: Add greek repo
+  apt_repository: repo=ppa:ts.sch.gr state=present update_cache=yes
+
+- name: Install ltsp-pnp packages
+  apt: pkg={{ item }} state=present
+  with_items:
+  - ltsp-client
+  - ltsp-server
+  - ldm-ubuntu-theme
+
+- name: Install a GUI
+  apt: pkg=lxde-core state=present
+
+- name: Build client image
+  command: ltsp-update-image --cleanup /
+
