@@ -10,9 +10,6 @@
   - ldm-ubuntu-theme
   register: install
 
-- name: Install a GUI
-  apt: pkg=lxde-core state=present
-
 - name: Build client image
   debug: install
   notify: ltsp-image

@@ -1,7 +1,0 @@
-create a disk image
-loop mount it as a user's home
-su to the user and run the steam install
-export the disk via nbd
-tell the client to load it
-mk the home dir
-mount the loaded nbd to the home dir
